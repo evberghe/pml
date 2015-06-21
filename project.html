@@ -290,6 +290,10 @@ for(i in 1:length(nodesizes)){
 }
 </code></pre>
 
+<p>Note that, in order to estimate the accurady of the prediction, we used data that were not seen by the
+training algorithm. Indeed, if we would have estimated our aaccuracy on the same data than the ones we
+used for training, we more than likely would have over-estimated the accuracy.</p>
+
 <p>We can visualise the accuracies with image(). Here lighter colours stand for higher accuracies.
 The x axis corresponds to different values of minimum node size, the y values are log base 2 of the 
 maximum number of nodes. Clearly we should have chosen larger values for the latter, as we didn&#39;t
@@ -318,6 +322,13 @@ cat(&quot;Predictions for the test data set \n&quot;, prd)
 <pre><code>## Predictions for the test data set 
 ##  2 1 2 1 1 5 4 2 1 1 2 3 2 1 5 5 1 2 2 2
 </code></pre>
+
+<p>Obviously, since we don&#39;t know the true categories for the test set, we can&#39;t calculate the accuracy.
+If we would have wanted to estimate our accuracy, we could have, for example, split up the training set
+in 10 parts, trained the model on nine out of those ten, calculated the accuracy, and repeat for the other 
+nine parts. The accuracy could then be calculated as the average over the 10 estimates. This procedure
+is known as k-fold cross-validation, with k equal to 10. Unfortunately,
+my computing equipment is not up to this, so I&#39;ve not been able to apply this procedure to the data at hand.</p>
 
 </body>
 
